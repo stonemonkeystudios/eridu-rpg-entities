@@ -6,7 +6,7 @@ using UnityEngine;
 using System.Linq;
 using Eridu.Common;
 
-namespace HQDotNet.Presence {
+namespace Eridu.Rpg {
     // Implements RPC service in the server project.
     // The implementation class must inherit `ServiceBase<IMyFirstService>` and `IMyFirstService`
     [GroupConfiguration(typeof(ConcurrentDictionaryGroupRepositoryFactory))]

@@ -3,7 +3,7 @@ using MessagePack;
 using Grpc.Net.Client;
 using MagicOnion.Server;
 
-namespace HQDotNet.Presence
+namespace Eridu.Rpg
 {
     public class Startup
     {

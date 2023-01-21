@@ -7,7 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
-namespace HQDotNet.Presence {
+namespace Eridu.Rpg {
     class Program {
         public static void Main(string[] args) {
             CreateHostBuilder(args).Build().Run();

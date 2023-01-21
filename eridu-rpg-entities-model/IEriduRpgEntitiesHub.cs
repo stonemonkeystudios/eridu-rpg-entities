@@ -3,8 +3,9 @@ using MagicOnion;
 using MessagePack;
 using System.Threading.Tasks;
 using UnityEngine;
+using HQDotNet;
 
-namespace HQDotNet.Presence {
+namespace Eridu.Rpg {
     public interface IEriduRpgEntitiesHubReceiver : IDispatchListener
     {
         // return type should be `void` or `Task`, parameters are free.

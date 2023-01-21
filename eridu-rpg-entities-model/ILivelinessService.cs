@@ -1,6 +1,6 @@
 ﻿using MagicOnion;
 
-namespace HQDotNet.Presence {
+namespace Eridu.Rpg {
 
     public interface ILivelinessService : IService<ILivelinessService> {
         UnaryResult<string> Status();

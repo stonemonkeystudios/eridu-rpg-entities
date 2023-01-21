@@ -44,10 +44,10 @@
 
 	<!-- Call code generator after compile successfully. -->
 	<Target Name="GenerateMessagePack" AfterTargets="Compile">
-		<MessagePackGenerator Compile="@(Compile)"  Namespace="Eridu.RpgEntities.Model" ReferencePath="@(ReferencePath)" DefineConstants="$(DefineConstants)" IntermediateOutputPath="..\release\Generated\" ResolverName="EriduRpgEntitiesMessagePackResolver"/>
+		<MessagePackGenerator Compile="@(Compile)"  Namespace="Eridu.Rpg.Model" ReferencePath="@(ReferencePath)" DefineConstants="$(DefineConstants)" IntermediateOutputPath="..\release\Generated\" ResolverName="EriduRpgEntitiesMessagePackResolver"/>
 	</Target>
 	<Target Name="GenerateMagicOnion" AfterTargets="Compile">
-		<MagicOnionGenerator Input="$(ProjectPath)" Namespace="Eridu.RpgEntities.Model" Output="..\release\Generated\EriduRpgEntities.MagicOnion.Generated.cs"/>
+		<MagicOnionGenerator Input="$(ProjectPath)" Namespace="Eridu.Rpg.Model" Output="..\release\Generated\EriduRpgEntities.MagicOnion.Generated.cs"/>
 	</Target>
 
 </Project>
