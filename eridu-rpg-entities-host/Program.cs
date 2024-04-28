@@ -20,7 +20,7 @@ namespace Eridu.Rpg {
                     webBuilder
                         .UseKestrel(options => {
                             // WORKAROUND: Accept HTTP/2 only to allow insecure HTTP/2 connections during development.
-                            options.ListenAnyIP(443, listenOptions => { listenOptions.Protocols = HttpProtocols.Http2; });
+                            options.ListenAnyIP(5002, listenOptions => { listenOptions.Protocols = HttpProtocols.Http2; });
                         })
                         .UseStartup<Startup>();
                 });
