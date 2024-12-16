@@ -19,7 +19,7 @@
         "DOTNET_ENVIRONMENT": "Development"
       },
       "publishAllPorts": true,
-      "useSSL": true
+      "useSSL": false
     },
     "HQDotNet.Server (Production)": {
       "commandName": "Project",
