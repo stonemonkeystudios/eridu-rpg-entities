@@ -15,6 +15,9 @@ namespace Eridu.Rpg {
         void OnEntityDie(int rpgEntityId, bool isPlayer);
         void OnResurrectPlayer(int rpgEntityId);
         void OnRequestResurrectPlayer(int rpgEntityId);
+
+        void OnSpawnCollectableItemForPlayer(string itemGuid, int playerId, int itemId, Vector3 worldPosition);
+        void OnDespawnCollectableItem(int playerId, int itemId);
         void OnPrototypeMessageReceived(string messageType, string messageData);
     }
 
@@ -25,6 +28,8 @@ namespace Eridu.Rpg {
         Task EntityDie(int rpgEntityId, bool isPlayer);
         Task RequestResurrectPlayer(int rpgEntityId);
         Task ResurrectPlayer(int rpgEntityId);
+        Task SpawnCollectableItemForPlayer(string itemGuid, int playerId, int itemId, Vector3 worldPosition);
+        Task DespawnCollectableItemForPlayer(int itemId, int playerId);
         Task PrototypeMessage(string messageType, string messageData);
 
         Task LeaveAsync();

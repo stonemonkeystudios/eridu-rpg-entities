@@ -29,6 +29,7 @@ namespace Eridu.Rpg {
 
             //Group can bundle many connections and it has inmemory-storage so add any type per group
             (room, _clientStorage) = await Group.AddAsync(roomName, self);
+            ClientStorage.Instance.AddClient(self.clientId, this.Context.ContextId);
 
             BroadcastExceptSelf(room).OnJoin(self);
 
@@ -46,6 +47,7 @@ namespace Eridu.Rpg {
         private async Task LeaveRoom() {
             if (!leftRoom) {
                 if(room != null) {
+                    ClientStorage.Instance.RemoveClient(self.clientId);
                     await room.RemoveAsync(this.Context);
                     Broadcast(room).OnLeave(self);
                     leftRoom = true;
@@ -92,6 +94,22 @@ namespace Eridu.Rpg {
         public Task ResurrectPlayer(int rpgEntityId) {
             if (room != null)
                 Broadcast(room).OnResurrectPlayer(rpgEntityId);
+            return Task.CompletedTask;
+        }
+
+        public Task SpawnCollectableItemForPlayer(string itemGuid, int playerId, int itemId, Vector3 worldPosition) {
+            var connectionId = ClientStorage.Instance.GetConnectionIdFromClientId(playerId);
+            if (room != null && connectionId.HasValue) {
+                BroadcastTo(room, connectionId.Value).OnSpawnCollectableItemForPlayer(itemGuid, playerId, itemId, worldPosition);
+            }
+            return Task.CompletedTask;
+        }
+
+        public Task DespawnCollectableItemForPlayer(int itemId, int playerId) {
+            var connectionId = ClientStorage.Instance.GetConnectionIdFromClientId(playerId);
+            if(room != null && connectionId.HasValue) {
+                BroadcastTo(room, connectionId.Value).OnDespawnCollectableItem(playerId, itemId);
+            }
             return Task.CompletedTask;
         }
 
